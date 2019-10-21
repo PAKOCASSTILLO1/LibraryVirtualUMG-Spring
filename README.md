@@ -23,7 +23,7 @@ AGREGAR DRIVER OJDBC7 A MAVEN
 AGREGAR DRIVER OJDBC7 A PROYECTO SPRING
 - IR AL ARCHIVO pom.xml DEL PROYECTO Y AGREGAR O DESCOMENTAR LA SIGUIENTE DEPENDENCIA (SIN COMILLAS Y SIN ESPACIOS)
 <code>
-        <p>< dependency ></p><br>
+        <dependency><br>
 		< groupId >com.oracle</ groupId >
 		< artifactId >ojdbc7< /artifactId >
 		< version >11.2.0.2< /version >
