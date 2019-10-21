@@ -1,0 +1,29 @@
+
+GET http://localhost:9002/lenguaje/listar HTTP/1.1
+###
+
+GET http://localhost:9002/lenguaje/ver/1 HTTP/1.1
+
+###
+
+POST http://localhost:9002/lenguaje/crear HTTP/1.1
+content-type: application/json
+
+{
+    "name": "LENGUAJE 1",
+    "createdUser": "FC"
+}
+
+###
+
+PUT http://localhost:9002/lenguaje/editar/2 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "LENGUAJE HONDURAS",
+    "createdUser": "KC"
+}
+
+###
+
+DELETE http://localhost:9002/lenguaje/borrar/2 HTTP/1.1

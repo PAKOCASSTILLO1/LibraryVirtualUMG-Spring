@@ -1,0 +1,55 @@
+-- COUNTRY
+INSERT INTO `country`(`created_user`, `created_on`, `name`, `state`) VALUES ("FC","2019-10-10", "GUATEMALA", 1);
+INSERT INTO `country`(`created_user`, `created_on`, `name`, `state`) VALUES ("FC","2019-10-10", "MEXICO", 1);
+INSERT INTO `country`(`created_user`, `created_on`, `name`, `state`) VALUES ("FC","2019-10-10", "HONDURAS", 1);
+INSERT INTO `country`(`created_user`, `created_on`, `name`, `state`) VALUES ("FC","2019-10-10", "NICARAGUA", 1);
+INSERT INTO `country`(`created_user`, `created_on`, `name`, `state`) VALUES ("FC","2019-10-10", "COSTA RICA", 1);
+INSERT INTO `country`(`created_user`, `created_on`, `name`, `state`) VALUES ("FC","2019-10-10", "PANAMA", 1);
+
+-- AUTHOR
+INSERT INTO `author`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_contry`) VALUES (1, "2019-10-10", "FC", "PAULO COELO", 1, 1);
+INSERT INTO `author`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_contry`) VALUES (1, "2019-10-10", "FC", "PAULO COELO", 1, 1);
+INSERT INTO `author`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_contry`) VALUES (1, "2019-10-10", "FC", "PAULO COELO", 1, 1);
+INSERT INTO `author`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_contry`) VALUES (2, "2019-10-10", "FC", "PAULO COELO", 1, 2);
+INSERT INTO `author`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_contry`) VALUES (2, "2019-10-10", "FC", "PAULO COELO", 1, 2);
+INSERT INTO `author`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_contry`) VALUES (2, "2019-10-10", "FC", "PAULO COELO", 1, 2);
+
+-- EDITORIAL
+INSERT INTO `editorial`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_country`) VALUES (1, "2019-10-10", "FC", "EDITORIAL 1", 1, 1);
+INSERT INTO `editorial`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_country`) VALUES (1, "2019-10-10", "FC", "EDITORIAL 2", 1, 1);
+INSERT INTO `editorial`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_country`) VALUES (1, "2019-10-10", "FC", "EDITORIAL 3", 1, 1);
+INSERT INTO `editorial`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_country`) VALUES (2, "2019-10-10", "FC", "EDITORIAL 4", 1, 2);
+INSERT INTO `editorial`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_country`) VALUES (2, "2019-10-10", "FC", "EDITORIAL 5", 1, 2);
+INSERT INTO `editorial`(`country_id`, `created_on`, `created_user`, `name`, `state`, `fk_country`) VALUES (2, "2019-10-10", "FC", "EDITORIAL 6", 1, 2);
+
+-- CATEGORY
+INSERT INTO `category`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "CATEGORY 1", 1);
+INSERT INTO `category`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "CATEGORY 2", 1);
+INSERT INTO `category`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "CATEGORY 3", 1);
+INSERT INTO `category`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "CATEGORY 4", 1);
+INSERT INTO `category`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "CATEGORY 5", 1);
+INSERT INTO `category`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "CATEGORY 6", 1);
+
+-- LENGUAJE
+INSERT INTO `lenguaje`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "LENGUAJE 1", 1);
+INSERT INTO `lenguaje`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "LENGUAJE 2", 1);
+INSERT INTO `lenguaje`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "LENGUAJE 3", 1);
+INSERT INTO `lenguaje`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "LENGUAJE 4", 1);
+INSERT INTO `lenguaje`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "LENGUAJE 5", 1);
+INSERT INTO `lenguaje`(`created_on`, `created_user`, `name`, `state`) VALUES ("2019-10-10", "FC", "LENGUAJE 6", 1);
+
+-- SYSTEM_USER
+INSERT INTO `system_user`(`created_on`, `created_user`, `email`, `name`, `password`, `state`, `telephone`) VALUES ("2019-10-10", "FC", "FC@GMAIL.COM", "PAKO", "1234", 1, "1234");
+INSERT INTO `system_user`(`created_on`, `created_user`, `email`, `name`, `password`, `state`, `telephone`) VALUES ("2019-10-10", "FC", "DE@GMAIL.COM", "ES", "1234", 1, "1234");
+INSERT INTO `system_user`(`created_on`, `created_user`, `email`, `name`, `password`, `state`, `telephone`) VALUES ("2019-10-10", "FC", "FWE@GMAIL.COM", "TY", "1234", 1, "1234");
+INSERT INTO `system_user`(`created_on`, `created_user`, `email`, `name`, `password`, `state`, `telephone`) VALUES ("2019-10-10", "FC", "QW@GMAIL.COM", "WE", "1234", 1, "1234");
+INSERT INTO `system_user`(`created_on`, `created_user`, `email`, `name`, `password`, `state`, `telephone`) VALUES ("2019-10-10", "FC", "FRE@GMAIL.COM", "ER", "1234", 1, "1234");
+
+
+-- DOCUMENT
+INSERT INTO `document`(`author_id`, `category_id`, `editorial_id`, `user_id`, `lenguaje_id`, `created_on`, `created_user`, `description`, `imagen_path`, `pdf_path`, `privated`, `publication_date`, `state`, `title`, `fk_autor`, `fk_category`, `fk_editorial`, `fk_lenguaje`, `fk_system_user`) VALUES (1,1,1,1,1, "2019-10-10", "FC", "DESCRIPCION 1", "IMAGEN 1", "PDF 1", 1, "2019-10-10", 1, "TITULO 1", 1,1,1,1,1);
+INSERT INTO `document`(`author_id`, `category_id`, `editorial_id`, `user_id`, `lenguaje_id`, `created_on`, `created_user`, `description`, `imagen_path`, `pdf_path`, `privated`, `publication_date`, `state`, `title`, `fk_autor`, `fk_category`, `fk_editorial`, `fk_lenguaje`, `fk_system_user`) VALUES (2,2,2,2,2, "2019-10-10", "FC", "DESCRIPCION 2", "IMAGEN 2", "PDF 2", 1, "2019-10-10", 1, "TITULO 2", 2,2,2,2,2);
+INSERT INTO `document`(`author_id`, `category_id`, `editorial_id`, `user_id`, `lenguaje_id`, `created_on`, `created_user`, `description`, `imagen_path`, `pdf_path`, `privated`, `publication_date`, `state`, `title`, `fk_autor`, `fk_category`, `fk_editorial`, `fk_lenguaje`, `fk_system_user`) VALUES (3,3,3,3,3, "2019-10-10", "FC", "DESCRIPCION 3", "IMAGEN 3", "PDF 3", 1, "2019-10-10", 1, "TITULO 3", 3,3,3,3,3);
+INSERT INTO `document`(`author_id`, `category_id`, `editorial_id`, `user_id`, `lenguaje_id`, `created_on`, `created_user`, `description`, `imagen_path`, `pdf_path`, `privated`, `publication_date`, `state`, `title`, `fk_autor`, `fk_category`, `fk_editorial`, `fk_lenguaje`, `fk_system_user`) VALUES (4,4,4,4,4, "2019-10-10", "FC", "DESCRIPCION 4", "IMAGEN 4", "PDF 4", 1, "2019-10-10", 1, "TITULO 4", 4,4,4,4,4);
+INSERT INTO `document`(`author_id`, `category_id`, `editorial_id`, `user_id`, `lenguaje_id`, `created_on`, `created_user`, `description`, `imagen_path`, `pdf_path`, `privated`, `publication_date`, `state`, `title`, `fk_autor`, `fk_category`, `fk_editorial`, `fk_lenguaje`, `fk_system_user`) VALUES (5,5,5,5,5, "2019-10-10", "FC", "DESCRIPCION 5", "IMAGEN 5", "PDF 5", 1, "2019-10-10", 1, "TITULO 5", 5,5,5,5,5);
+
