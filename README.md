@@ -24,10 +24,10 @@ AGREGAR DRIVER OJDBC7 A PROYECTO SPRING
 - IR AL ARCHIVO pom.xml DEL PROYECTO Y AGREGAR O DESCOMENTAR LA SIGUIENTE DEPENDENCIA (SIN COMILLAS Y SIN ESPACIOS)
 <code>
         <p> < dependency > </p><br>
-		<p> < groupId > com.oracle </ groupId > </p><br>
-		<p> < artifactId > ojdbc7 </ artifactId > </p><br>
-		<p> < version > 11.2.0.2 </ version > </p><br>
-	<p> </ dependency > </p><br>
+		<p> < groupId > com.oracle < / groupId > </p><br>
+		<p> < artifactId > ojdbc7 < / artifactId > </p><br>
+		<p> < version > 11.2.0.2 < / version > </p><br>
+	<p> < / dependency > </p><br>
  </code>
   
 CONFIGURAR USUARIO DE CONEXION EN LA BASE DE DATOS
