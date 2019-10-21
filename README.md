@@ -21,15 +21,14 @@ AGREGAR DRIVER OJDBC7 A PROYECTO SPRING
 <!DOCTYPE html>
 <body>
     <code>
-        HOLA
+        <dependency>
+		<groupId>com.oracle</groupId>
+		<artifactId>ojdbc7</artifactId>
+		<version>11.2.0.2</version>
+	</dependency>
     </code>
 </body>
 </html>
-"< dependency >"
-	"< groupId > com.oracle < / groupId >"
-	"< artifactId > ojdbc7 < / artifactId >"
-	"< version > 11.2.0.2 < / version >"
-"< / dependency >"
   
 CONFIGURAR USUARIO DE CONEXION EN LA BASE DE DATOS
 - EL USUARIO QUE SE DEBE DE UTILZAR QUEDA A SU CRITERIO, SOLO TENGA EN CUENTA LO SIGUIENTE:
