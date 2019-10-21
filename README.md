@@ -19,11 +19,11 @@ AGREGAR DRIVER OJDBC7 A MAVEN
 AGREGAR DRIVER OJDBC7 A PROYECTO SPRING
 - IR AL ARCHIVO pom.xml DEL PROYECTO Y AGREGAR O DESCOMENTAR LA SIGUIENTE DEPENDENCIA
   
-  <dependency>
-	  <groupId>com.oracle</groupId>
-	  <artifactId>ojdbc7</artifactId>
-	  <version>11.2.0.2</version>
-	</dependency>
+  "<dependency>"
+	  "<groupId>com.oracle</groupId>"
+	  "<artifactId>ojdbc7</artifactId>"
+	  "<version>11.2.0.2</version>"
+	"</dependency>"
   
 CONFIGURAR USUARIO DE CONEXION EN LA BASE DE DATOS
 - EL USUARIO QUE SE DEBE DE UTILZAR QUEDA A SU CRITERIO, SOLO TENGA EN CUENTA LO SIGUIENTE:
