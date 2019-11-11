@@ -57,6 +57,24 @@ public class AuthorController {
             List<Author> data = new ArrayList<>();
             for (Author author : authors) {
                 if (author.getState()==1) {
+                    data.add(author);
+                }
+            }
+            ApiResponse apiResponse = new ApiResponse("OK", "Proceso Exitoso", data);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+        } catch (Exception e) {
+            ApiResponse apiResponse = new ApiResponse("FAIL", e.toString(), null);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.BAD_REQUEST);            
+        }
+    }
+
+    @GetMapping("/busqueda/{dato}")
+    public ResponseEntity<ApiResponse> busqueda(@PathVariable String dato){
+        try {
+            List<Author> authors =  authorRepository.busqueda(dato);
+            List<Author> data = new ArrayList<>();
+            for (Author author : authors) {
+                if (author.getState()==1) {
                     author.setCountry(null);
                     data.add(author);
                 }
