@@ -6,6 +6,14 @@ GET http://localhost:9002/document/ver/1 HTTP/1.1
 
 ###
 
+GET http://localhost:9002/document/category/1 HTTP/1.1
+
+###
+
+GET http://localhost:9002/document/busqueda/felicidad HTTP/1.1
+
+###
+
 POST http://localhost:9002/document/crear HTTP/1.1
 content-type: application/json
 

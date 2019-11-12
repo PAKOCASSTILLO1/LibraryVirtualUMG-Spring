@@ -52,7 +52,41 @@ public class DocumentController {
     @Autowired
     DocumentRepository documentRepository;
 
-    
+    @GetMapping("/busqueda/{dato}")
+    public ResponseEntity<ApiResponse> busqueda(@PathVariable String dato){
+        try {
+            List<Document> documents =  documentRepository.busqueda(dato);
+            List<Document> data = new ArrayList<>();
+            for (Document document : documents) {
+                if (document.getState()==1) {
+                    data.add(document.nullable());             
+                }
+            }
+            ApiResponse apiResponse = new ApiResponse("OK", "Proceso Exitoso", data);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+        } catch (Exception e) {
+            ApiResponse apiResponse = new ApiResponse("FAIL", e.toString(), null);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.BAD_REQUEST);            
+        }
+    }
+
+    @GetMapping("/category/{id}")
+    public ResponseEntity<ApiResponse> listarCategoria(@PathVariable int id){
+        List<Document> data = new ArrayList<>();
+        List<Document> documents =  documentRepository.findByCategoryId(id);
+        for (Document document : documents) {
+            if (document.getState()!=0) {
+                data.add(document.nullable());
+            }
+        }
+        try {
+            ApiResponse apiResponse = new ApiResponse("OK", "Proceso Exitoso", data);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+        } catch (Exception e) {
+            ApiResponse apiResponse = new ApiResponse("FAIL", e.getMessage(), null);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.BAD_REQUEST);            
+        }
+    }
 
     @GetMapping("/listar")
     public ResponseEntity<ApiResponse> listar(){
@@ -60,7 +94,7 @@ public class DocumentController {
         List<Document> documents =  documentRepository.findAll();
         for (Document document : documents) {
             if (document.getState()!=0) {
-                data.add(document.nullable());                    
+                data.add(document.nullable());               
             }
         }
         try {
