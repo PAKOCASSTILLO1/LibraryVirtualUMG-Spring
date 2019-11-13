@@ -24,7 +24,7 @@ public class SystemUser implements Serializable{
     // PRIMARY KEY
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "userId")
-    @SequenceGenerator(name = "userId", sequenceName = "ID_USER")
+    @SequenceGenerator(name = "userId", sequenceName = "ID_USER", allocationSize = 1)
     public int userId;
 
     @NotNull
