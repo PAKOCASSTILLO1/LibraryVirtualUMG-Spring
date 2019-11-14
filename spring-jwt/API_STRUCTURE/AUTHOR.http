@@ -1,0 +1,35 @@
+
+GET http://localhost:9002/author/listar HTTP/1.1
+###
+
+GET http://localhost:9002/author/busqueda/Gaspiano HTTP/1.1
+
+###
+
+GET http://localhost:9002/author/ver/1 HTTP/1.1
+
+###
+
+POST http://localhost:9002/author/crear HTTP/1.1
+content-type: application/json
+
+{
+    "name": "PRUEBA author CREAR",
+    "countryId":1,
+    "createdUser": "FC"
+}
+
+###
+
+PUT http://localhost:9002/author/editar/2 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "PRUEBA author EDITAR",
+    "countryId":2,
+    "createdUser": "KC"
+}
+
+###
+
+DELETE http://localhost:9002/author/borrar/2 HTTP/1.1

@@ -1,0 +1,29 @@
+
+GET http://localhost:9002/category/listar HTTP/1.1
+###
+
+GET http://localhost:9002/category/ver/1 HTTP/1.1
+
+###
+
+POST http://localhost:9002/category/crear HTTP/1.1
+content-type: application/json
+
+{
+    "name": "CATEGORIA 1",
+    "createdUser": "FC"
+}
+
+###
+
+PUT http://localhost:9002/category/editar/2 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "CATEGORIA EDITADA",
+    "createdUser": "KC"
+}
+
+###
+
+DELETE http://localhost:9002/category/borrar/2 HTTP/1.1
