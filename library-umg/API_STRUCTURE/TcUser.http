@@ -1,0 +1,35 @@
+
+GET http://localhost:9002/user/all HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlcnZpbiIsImlhdCI6MTU3MzgzNjE3NSwiZXhwIjoxNTczODQ2OTc1fQ.Iz_iE6-5lH7goOVcUpl6INFwOl3R80NbsWiBtsPZ_zWUDpBY1yM3JVbp-e0zvVvRJwNlM09zRjeV7SWlHyxUdw
+
+###
+
+POST http://localhost:9002/user/add HTTP/1.1
+content-type: application/json
+
+{
+      "fullname": "pako.laferre",
+      "username": "pako",
+      "email": "pako@ejemplo",
+      "password": "pako",
+      "statusId": 1,
+      "createDate": "2019-11-14T08:45:51.880+0000",
+      "photo": "photopath",
+      "tcRole": {
+        "roleId": 1,
+        "roleDesc": "admin",
+        "statusId": 1,
+        "createDate": "2019-11-14T08:44:38.452+0000",
+        "roleCode": "1"
+      }
+}
+
+###
+
+POST http://localhost:9002/user/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "ervin",
+    "password": "12345678"
+}
