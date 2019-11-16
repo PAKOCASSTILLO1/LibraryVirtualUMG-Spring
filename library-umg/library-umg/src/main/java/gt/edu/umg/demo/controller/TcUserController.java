@@ -82,6 +82,69 @@ public class TcUserController {
         return apiResponse;
     }
 
+    @PostMapping("/login/google/{email}")
+    public ApiResponse login(@Valid @PathVariable String email) {
+        User user = new User();
+        user.setUsername(email);
+        user.setPassword("Google");
+        try {
+            Authentication authentication = authenticationManager
+            .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String token = jwtProvider.generateJwtToken(authentication);
+            Optional<TcUser> found = tcUserRepository.findByUsername(user.getUsername());
+            TcUser tcUser = found.get();
+            tcUser.setPassword("");
+            List<TcUser> list = new ArrayList<>();
+            list.add(tcUser);
+            apiResponse.setData(list);
+            apiResponse.setStatus(ResponseResult.success.getValue());
+            apiResponse.setMessage(ResponseResult.success.getMessage());
+            apiResponse.setSingleValue(token);
+        } catch (Exception e) {
+            apiResponse.setStatus(ResponseResult.fail.getValue());
+            if (this.showErrors) {
+                apiResponse.setMessage(e.getMessage());
+            } else {
+                apiResponse.setMessage(ResponseResult.fail.getMessage());
+            }
+        }
+        return apiResponse;
+    }
+
+    @PostMapping("/add/google")
+    public ApiResponse setUserGoogle(@Valid @RequestBody TcUser tcUser) {
+        tcUser.setUsername(tcUser.getEmail());
+        tcUser.setPassword("Google");
+        try {
+            boolean bndContinue = true;
+            if (tcUserRepository.existsByUsername(tcUser.getUsername())) {
+                apiResponse.setStatus(ResponseResult.fail.getValue());
+                apiResponse.setMessage("Username already exists");
+                bndContinue = false;
+            }
+            if (bndContinue && tcUserRepository.existsByEmail(tcUser.getEmail())) {
+                apiResponse.setStatus(ResponseResult.fail.getValue());
+                apiResponse.setMessage("Email already exists");
+                bndContinue = false;
+            }
+            if (bndContinue) {
+                tcUser.setPassword(passwordEncoder.encode(tcUser.getPassword()));
+                tcUserRepository.save(tcUser);
+                apiResponse.setStatus(ResponseResult.success.getValue());
+                apiResponse.setMessage(ResponseResult.success.getMessage());
+            }
+        } catch (Exception e) {
+            apiResponse.setStatus(ResponseResult.fail.getValue());
+            if (this.showErrors) {
+                apiResponse.setMessage(e.getMessage());
+            } else {
+                apiResponse.setMessage(ResponseResult.fail.getMessage());
+            }
+        }
+        return apiResponse;
+    }
+
     @PostMapping("/add")
     public ApiResponse setUser(@Valid @RequestBody TcUser tcUser) {
         try {

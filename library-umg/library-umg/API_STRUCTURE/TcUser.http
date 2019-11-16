@@ -26,6 +26,28 @@ content-type: application/json
 
 ###
 
+POST http://localhost:9002/user/add/google HTTP/1.1
+content-type: application/json
+
+{
+      "fullname": "pako.laferre",
+      "username": "pako",
+      "email": "paco.cast.15@gmail.com",
+      "password": "pako",
+      "statusId": 1,
+      "createDate": "2019-11-14T08:45:51.880+0000",
+      "photo": "photopath",
+      "tcRole": {
+        "roleId": 1,
+        "roleDesc": "admin",
+        "statusId": 1,
+        "createDate": "2019-11-14T08:44:38.452+0000",
+        "roleCode": "1"
+      }
+}
+
+###
+
 POST http://localhost:9002/user/login HTTP/1.1
 content-type: application/json
 
@@ -33,3 +55,7 @@ content-type: application/json
     "username": "ervin",
     "password": "12345678"
 }
+
+###
+
+POST http://localhost:9002/user/login/google/paco.cast.15@gmail.com HTTP/1.1
