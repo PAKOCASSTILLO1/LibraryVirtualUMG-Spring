@@ -80,10 +80,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(HttpMethod.PUT, "/country/editar/{id}").hasAnyRole("USER", "ADMIN")
         .antMatchers(HttpMethod.DELETE, "/country/borrar/{id}").hasRole("ADMIN")
 
-        // AUTHOR
+        // DOCUMENT
         .antMatchers(HttpMethod.GET, 
             "/document/listar", "/document/busqueda/{dato}", "/document/ver/{id}", 
-            "/document/category/{id}")
+            "/document/category/{id}","/document/author", "/document/category")
         .permitAll()
         .antMatchers(HttpMethod.POST, "/document/crear").hasAnyRole("USER", "ADMIN")
         .antMatchers(HttpMethod.PUT, "/document/editar/{id}").hasAnyRole("USER", "ADMIN")

@@ -1,5 +1,10 @@
 
 GET http://localhost:9002/document/listar HTTP/1.1
+
+###
+
+GET http://localhost:9002/document/author HTTP/1.1
+
 ###
 
 GET http://localhost:9002/document/ver/1 HTTP/1.1

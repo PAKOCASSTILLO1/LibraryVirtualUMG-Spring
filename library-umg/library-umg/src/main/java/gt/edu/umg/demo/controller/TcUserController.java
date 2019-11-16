@@ -108,6 +108,8 @@ public class TcUserController {
                 apiResponse.setSingleValue(null);
             }
         } catch (Exception e) {
+            apiResponse.setData(null);
+            apiResponse.setSingleValue(null);
             apiResponse.setStatus(ResponseResult.fail.getValue());
             if (this.showErrors) {
                 apiResponse.setMessage(e.getMessage());

@@ -18,4 +18,9 @@ public interface DocumentRepository extends JpaRepository<Document, Integer>{
     List<Document> busqueda(String data);
 
     List<Document> findByCategoryId(int id);
+
+    List<Document> findByAuthorId(int id);
+
+    // @Query("SELECT Author.name, Document.title FROM Document d JOIN Author a ON Author.authorId = Document.authorId")
+    // List<?> bookAuthor();
 }

@@ -7,6 +7,8 @@ import gt.edu.umg.demo.model.Author;
 import gt.edu.umg.demo.model.Category;
 import gt.edu.umg.demo.model.Document;
 import gt.edu.umg.demo.model.Editorial;
+import gt.edu.umg.demo.model.ForAuthor;
+import gt.edu.umg.demo.model.ForCategory;
 import gt.edu.umg.demo.model.Lenguaje;
 import gt.edu.umg.demo.model.TcUser;
 import gt.edu.umg.demo.repository.AuthorRepository;
@@ -66,6 +68,57 @@ public class DocumentController {
             return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
         } catch (Exception e) {
             ApiResponse apiResponse = new ApiResponse("FAIL", e.toString(), null);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.BAD_REQUEST);            
+        }
+    }
+
+    @GetMapping("/author")
+    public ResponseEntity<ApiResponse> documentAuthor(){
+        List<Author> authors = authorRepository.findAll();
+        List<ForAuthor> listForAuthors = new ArrayList();
+
+        for (Author author : authors) {
+            ForAuthor forAuthor = new ForAuthor();
+            forAuthor.author(author.getName());
+
+            List<Document> documents = documentRepository.findByAuthorId(author.authorId);
+
+            for (Document document : documents) {
+                forAuthor.getDocuments().add(document.getTitle());
+            }
+            //forAuthor.setDocuments(documents);
+            listForAuthors.add(forAuthor);
+        }
+        try {
+            ApiResponse apiResponse = new ApiResponse("OK", "Proceso Exitoso", listForAuthors);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+        } catch (Exception e) {
+            ApiResponse apiResponse = new ApiResponse("FAIL", e.getMessage(), null);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.BAD_REQUEST);            
+        }
+    }
+
+    @GetMapping("/category")
+    public ResponseEntity<ApiResponse> documentCategory(){
+        List<Category> categories = categoryRepository.findAll();
+        List<ForCategory> listForCategory = new ArrayList();
+
+        for (Category category : categories) {
+            ForCategory forCategory = new ForCategory();
+            forCategory.category(category.getName());
+
+            List<Document> documents = documentRepository.findByCategoryId(category.categoryId);
+
+            for (Document document : documents) {
+                forCategory.getDocuments().add(document.getTitle());
+            }
+            listForCategory.add(forCategory);
+        }
+        try {
+            ApiResponse apiResponse = new ApiResponse("OK", "Proceso Exitoso", listForCategory);
+            return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+        } catch (Exception e) {
+            ApiResponse apiResponse = new ApiResponse("FAIL", e.getMessage(), null);
             return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.BAD_REQUEST);            
         }
     }
