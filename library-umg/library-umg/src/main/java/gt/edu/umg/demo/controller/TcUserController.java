@@ -93,14 +93,20 @@ public class TcUserController {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String token = jwtProvider.generateJwtToken(authentication);
             Optional<TcUser> found = tcUserRepository.findByUsername(user.getUsername());
-            TcUser tcUser = found.get();
-            tcUser.setPassword("");
-            List<TcUser> list = new ArrayList<>();
-            list.add(tcUser);
-            apiResponse.setData(list);
-            apiResponse.setStatus(ResponseResult.success.getValue());
-            apiResponse.setMessage(ResponseResult.success.getMessage());
-            apiResponse.setSingleValue(token);
+            
+            if(!found.equals(null)){
+                TcUser tcUser = found.get();
+                tcUser.setPassword("");
+                List<TcUser> list = new ArrayList<>();
+                list.add(tcUser);
+                apiResponse.setData(list);
+                apiResponse.setStatus(ResponseResult.success.getValue());
+                apiResponse.setMessage(ResponseResult.success.getMessage());
+                apiResponse.setSingleValue(token);
+            }else{
+                apiResponse.setData(null);
+                apiResponse.setSingleValue(null);
+            }
         } catch (Exception e) {
             apiResponse.setStatus(ResponseResult.fail.getValue());
             if (this.showErrors) {
